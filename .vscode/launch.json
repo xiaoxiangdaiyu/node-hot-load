@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/livereload/app.js"
+            "program": "${workspaceFolder}/reload/reloadMiddware.js"
         }
     ]
 }

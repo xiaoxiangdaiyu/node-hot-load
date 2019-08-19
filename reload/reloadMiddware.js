@@ -10,16 +10,14 @@ function handelChange(){
     return cp.fork(path.join(__dirname, './src/app.js'))
 }
 
-function wacthDir(app,dir){
-    watch.watchTree(__dirname + '/views',function(f,cur,prev){
-        if (!watch) {
-            watch = chokidar.watch(dir)
-        }
-        watch.on('change', function (path) {
-            console.log('file change>>>', path)
-            appIns = handelChange('isChange')
-        });
-    })  
+function wacthDir(){
+    if (!watch) {
+        watch = chokidar.watch(__dirname+'/views')
+    }
+    watch.on('change',function(path){
+        console.log('file change>>>', path)
+        appIns = handelChange('isChange')
+    }) 
 }
 process.on('SIGINT', () => {
    process.exit(0);
