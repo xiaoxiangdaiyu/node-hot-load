@@ -1,0 +1,22 @@
+{
+  "name": "bode-hot-load",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^3.0.2",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "sendevent": "^1.0.5",
+    "uglify-js": "^3.6.0",
+    "watch": "^1.0.2"
+  }
+}
