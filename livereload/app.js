@@ -3,7 +3,7 @@ var app = express();
 var ejs = require('ejs');
 var path = require('path');
 var reloadMiddleware = require('./reloadMiddware');
-var PORT = 8080;
+var PORT = 8089;
 // 引入
 reloadMiddleware(app, __dirname + '/views') 
 //  设置渲染引擎

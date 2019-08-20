@@ -35,7 +35,6 @@ var reload = function(app,dir){
             // js变化
             if (path.match('.js')){
                 cleanCache(path)
-                test()
             }
             events.broadcast({
                 msg: 'reload'

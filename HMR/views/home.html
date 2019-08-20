@@ -1,9 +1,19 @@
 <html>
     <head>
-        <title>livereload</title>
+        <title>HMR</title>
     </head>
     <body>
-        内容 真神奇 nishuo ne
+        内容
+       
+        名称：<div id='name'>test</div>
+        年龄：<div id='age'>10</div>
+        <button id='button'>点击展示数据</button>
+        <script type="text/javascript">
+            window.store = {
+                name:'test',
+                age:10
+            }
+        </script>
         <%- watchScript %>
     </body>
 </html>
