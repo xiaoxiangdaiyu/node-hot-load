@@ -3,8 +3,8 @@ var chokidar = require('chokidar');
 var uglify = require('uglify-js');
 var fs = require('fs');
 var ENV = process.env.NODE_ENV || 'development'; 
-var MemoryFileSystem = require("memory-fs");
-var fs2 = new MemoryFileSystem();
+// var MemoryFileSystem = require("memory-fs");
+// var fs2 = new MemoryFileSystem();
 
 var watch = null
 
@@ -12,12 +12,13 @@ var polyfill = fs.readFileSync(__dirname + '/eventsource-polyfill.js', 'utf8');
 var clientScript = fs.readFileSync(__dirname + '/scripts.js', 'utf8');
 // 获得js代码，压缩之后插入html
 var script = uglify.minify(polyfill + clientScript).code;
-var sayStr = fs.readFileSync(__dirname + '/views/say.js', 'utf8')
+// 注释掉memory-fs
+/* var sayStr = fs.readFileSync(__dirname + '/views/say.js', 'utf8')
 console.log(__dirname+'sayStr',sayStr)
 fs2.mkdirpSync(__dirname+'/a/d')
 fs2.writeFileSync(__dirname+"/a/d/say.js", '1')
 var test2 = require(__dirname+'/a/d/say.js')
-console.log('test2>>',test2)
+console.log('test2>>',test2) */
 function cleanCache(moduleId){
     var path = require.resolve(moduleId)
     // 删除缓存
