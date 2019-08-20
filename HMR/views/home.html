@@ -9,10 +9,23 @@
         年龄：<div id='age'>10</div>
         <button id='button'>点击展示数据</button>
         <script type="text/javascript">
-            window.store = {
-                name:'test',
-                age:10
-            }
+            window.store = new Proxy({
+                    name: 'test',
+                    age: 10
+                },{
+                   get: function (target, key, receiver) {
+                        console.log(`getting ${key}!`);
+                        return Reflect.get(target, key, receiver);
+                    },
+                    set: function (target, key, value, receiver) {
+                        handleData({
+                            field:key,
+                            value:value
+                        })
+                        return Reflect.set(target, key, value, receiver);
+                    }
+                })
+
         </script>
         <%- watchScript %>
     </body>

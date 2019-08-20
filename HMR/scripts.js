@@ -1,5 +1,17 @@
 (function () {
+    var doms = {
+        name_div: document.querySelector('#name'),
+        age_div: document.querySelector('#age')
+    }
+    window.handleData = function ({ field, value }) {
+        doms[`${field}_div`].innerHTML = value
+    }
 
+    window.changeAge = function (data) {
+        console.log('in change', data)
+        window.store.age = data.msg
+    }
+    
     function subscribe(url, callback) {
         var source = new window.EventSource(url);
 
@@ -16,16 +28,13 @@
         return source.close.bind(source);
     };
     var button = document.querySelector('#button')
-    var name_div = document.querySelector('#name')
-    var age_div = document.querySelector('#age')
     button.addEventListener('click', function () {
-        name_div.innerHTML = '30,不是初始值了'
+        handleData({
+            field:'name',
+            value: '30, 不是初始值了'
+        })
     })
-    function changeAge(data) {
-        console.log('in change',data)
-        age_div.innerHTML = '服务端更新！！！age为' + data.msg
-    }
-    window.changeAge = changeAge
+   
     function jsonp(url) {
         var frame = document.createElement('script');
         frame.src = url;
